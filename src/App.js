@@ -64,28 +64,33 @@ function App() {
           <Route path="/" element={
             <div>
               <section>
-                <div>
-                  <p>
-                    I am a Quantitative Researcher specializing in statistical modeling, machine learning, and deep learning. I have developed and backtested predictive pricing models and algorithmic trading strategies; built robust trading systems and risk frameworks; and engineered scalable ML pipelines from data ingestion and feature engineering to AI model training and real-time deployment.
-                  </p>
-                  <p>
-                    I hold an M.S. in Computer Engineering from New York University (Sep 2023 – May 2025) and a B.S. in Computer Science from Bharati Vidyapeeth University (Jul 2019 – Jun 2023).
-                  </p>
-                  <p>
-                    Currently working as Quant Research Lead at GoQuant, where I direct alpha research initiatives, deploy systematic futures and options strategies, and architect execution engines and quantitative pricing models. I design and implement intelligent smart-order-routing systems that optimize venue selection, minimizing market impact, slippage, and transaction fees.
-                  </p>
-                  <p>
-                    My research interests include quantitative finance, machine learning, statistical modeling, and algorithmic trading. I am also interested in interdisciplinary topics that integrate methodologies in multiple fields such as applied probability, statistics, and optimization, along with their applications in addressing high-stake decision-making problems in modern large-scale systems, such as financial and economic systems. Some of the topics that I have been working on recently:
-                  </p>
-                  <ul>
-                    <li>mathematical foundation of Generative AI,</li>
-                    <li>optimal stopping and dynamic information acquisition,</li>
-                    <li>stochastic control, stochastic games, and mean-field games,</li>
-                    <li>reinforcement learning theory,</li>
-                    <li>and their applications in market microstructure and risk management</li>
-                  </ul>
-                  <p>Please find my CV <Link to="/resume">here</Link>.</p>
-                  <p>Email: shubham.singh (at) nyu (dot) edu</p>
+                <div className="intro-section">
+                  <div className="intro-content">
+                    <p>
+                      I am a Quantitative Researcher specializing in statistical modeling, machine learning, and deep learning. I have developed and backtested predictive pricing models and algorithmic trading strategies; built robust trading systems and risk frameworks; and engineered scalable ML pipelines from data ingestion and feature engineering to AI model training and real-time deployment.
+                    </p>
+                    <p>
+                      I hold an M.S. in Computer Engineering from New York University (Sep 2023 – May 2025) and a B.S. in Computer Science from Bharati Vidyapeeth University (Jul 2019 – Jun 2023).
+                    </p>
+                    <p>
+                      Currently working as Quant Research Lead at GoQuant, where I direct alpha research initiatives, deploy systematic futures and options strategies, and architect execution engines and quantitative pricing models. I design and implement intelligent smart-order-routing systems that optimize venue selection, minimizing market impact, slippage, and transaction fees.
+                    </p>
+                    <p>
+                      My research interests include quantitative finance, machine learning, statistical modeling, and algorithmic trading. I am also interested in interdisciplinary topics that integrate methodologies in multiple fields such as applied probability, statistics, and optimization, along with their applications in addressing high-stake decision-making problems in modern large-scale systems, such as financial and economic systems. Some of the topics that I have been working on recently:
+                    </p>
+                    <ul>
+                      <li>mathematical foundation of Generative AI,</li>
+                      <li>optimal stopping and dynamic information acquisition,</li>
+                      <li>stochastic control, stochastic games, and mean-field games,</li>
+                      <li>reinforcement learning theory,</li>
+                      <li>and their applications in market microstructure and risk management</li>
+                    </ul>
+                    <p>Please find my CV <Link to="/resume">here</Link>.</p>
+                    <p>Email: shubham.singh (at) nyu (dot) edu</p>
+                  </div>
+                  <div className="profile-image-container">
+                    <img src="/me.jpeg" alt="Shubham Singh" className="profile-image" />
+                  </div>
                 </div>
               </section>
 
