@@ -16,110 +16,116 @@ function AppContent() {
   return (
     <div className="App">
       <DarkModeToggle />
-      <div className="container">
-        <header className="text-center my-4">
-          <h1>Shubham Singh</h1>
-        </header>
+      <div>
+        <div className="container">
+          <header className="text-center my-4">
+            <h1>Shubham Singh</h1>
+          </header>
 
-        {!isQuantPage && (
-          <nav className="container-fluid">
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/quant">Quant Resources</Link></li>
-              <li><Link to="/resume">Resume</Link></li>
-              <li><Link to="/casual">Blog</Link></li>
-            </ul>
-          </nav>
-        )}
-      </div>
+          {!isQuantPage && (
+            <nav className="container-fluid">
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/quant">Quant Resources</Link></li>
+                <li><Link to="/resume">Resume</Link></li>
+                <li><Link to="/casual">Blog</Link></li>
+              </ul>
+            </nav>
+          )}
+        </div>
+        
         <Routes>
           <Route path="/" element={
             <div>
-              <section>
-                <div className="intro-section">
-                  <div className="intro-content">
-                    <div className="justified-text">
-                      <p>
-                        I am a Quantitative Researcher specializing in statistical modeling, machine learning, and deep learning. I have developed and backtested predictive pricing models and algorithmic trading strategies; built robust trading systems and risk frameworks; and engineered scalable ML pipelines from data ingestion and feature engineering to AI model training and real-time deployment.
-                      </p>
-                      <p>
-                        I hold an M.S. in Computer Engineering from New York University (Sep 2023 – May 2025) and a B.S. in Computer Science from Bharati Vidyapeeth University (Jul 2019 – Jun 2023).
-                      </p>
-                      <p>
-                        Currently working as Quant Researcher at GoQuant, where I direct alpha research initiatives, deploy systematic futures and options strategies, and architect execution engines and quantitative pricing models. I design and implement intelligent smart-order-routing systems that optimize venue selection, minimizing market impact, slippage, and transaction fees.
-                      </p>
-                      <p>
-                        My research interests include quantitative finance, machine learning, statistical modeling, and algorithmic trading. I am also interested in interdisciplinary topics that integrate methodologies in multiple fields such as applied probability, statistics, and optimization, along with their applications in addressing high-stake decision-making problems in modern large-scale systems, such as financial and economic systems. Some of the topics that I have been working on recently:
-                      </p>
-                      <ul>
-                        <li>mathematical foundation of Generative AI,</li>
-                        <li>optimal stopping and dynamic information acquisition,</li>
-                        <li>stochastic control, stochastic games, and mean-field games,</li>
-                        <li>reinforcement learning theory,</li>
-                        <li>and their applications in market microstructure and risk management</li>
-                      </ul>
-                      <p>Please find my CV <Link to="/resume">here</Link>.</p>
-                      <p>Email: shubham.singh (at) nyu (dot) edu</p>
-                    </div>
-                  </div>
-                  <div className="profile-image-container">
-                    <img src="/me.jpeg" alt="Shubham Singh" className="profile-image" />
+              <div className="intro-section">
+                <div className="intro-content">
+                  <div className="justified-text">
+                    <p>
+                      I am a Quantitative Researcher specializing in statistical modeling, machine learning, and deep learning. I have developed and backtested predictive pricing models and algorithmic trading strategies; built robust trading systems and risk frameworks; and engineered scalable ML pipelines from data ingestion and feature engineering to AI model training and real-time deployment.
+                    </p>
+                    <p>
+                      I hold an M.S. in Computer Engineering from New York University (Sep 2023 – May 2025) and a B.S. in Computer Science from Bharati Vidyapeeth University (Jul 2019 – Jun 2023).
+                    </p>
+                    <p>
+                      Currently working as Quant Researcher at GoQuant, where I direct alpha research initiatives, deploy systematic futures and options strategies, and architect execution engines and quantitative pricing models. I design and implement intelligent smart-order-routing systems that optimize venue selection, minimizing market impact, slippage, and transaction fees.
+                    </p>
+                    <p>
+                      My research interests include quantitative finance, machine learning, statistical modeling, and algorithmic trading. I am also interested in interdisciplinary topics that integrate methodologies in multiple fields such as applied probability, statistics, and optimization, along with their applications in addressing high-stake decision-making problems in modern large-scale systems, such as financial and economic systems. Some of the topics that I have been working on recently:
+                    </p>
+                    <ul>
+                      <li>LLM Fintetuning and alignment,</li>
+                      <li>Quantum semantic embedding of LLMs,</li>
+                      <li>Market making & Arbitrage strategies,</li>
+                      <li>Optimal control</li>
+                    </ul>
+                    <p>Please find my CV <Link to="/resume">here</Link>.</p>
+                    <p>Email: shubham.singh (at) nyu (dot) edu</p>
                   </div>
                 </div>
-              </section>
+                <div className="profile-image-container">
+                  <img src="/me.jpeg" alt="Shubham Singh" className="profile-image" />
+                </div>
+              </div>
 
-              <section className="publications">
+              <div className="publications-box">
                 <h3>Working Papers and Preprints</h3>
-                <div>
+                <div className="publications-content">
                   <ul>
-                    <li>
-                      <strong>Alignment Quality Index (AQI): Beyond Refusals: AQI as an Intrinsic Alignment Diagnostic via Latent Geometry, Cluster Divergence, and Layer wise Pooled Representations</strong><br/>
-                      A Borah, C Sharma, D Khanna, U Bhatt, G Singh, HM Abdullah, RK Ravi, ...<br/>
-                      <em>arXiv preprint arXiv:2506.13901, 2025</em>
+                    <li className="aqi-paper">
+                      <div className="aqi-content">
+                        <div className="aqi-image">
+                          <img src="/aqi.png" alt="AQI Paper" className="aqi-paper-image" />
+                        </div>
+                        <div className="aqi-text">
+                          <strong>Alignment Quality Index (AQI): Beyond Refusals: AQI as an Intrinsic Alignment Diagnostic via Latent Geometry, Cluster Divergence, and Layer wise Pooled Representations</strong>
+                          <span className="keywords">Keywords: AI Alignment, Large Language Models, Machine Learning, Deep Learning, Neural Networks, Model Evaluation, AI Safety, Computational Linguistics</span>
+                          A Borah, C Sharma, D Khanna, U Bhatt, G Singh, HM Abdullah, RK Ravi, et al. <em>arXiv preprint arXiv:2506.13901, 2025</em>
+                        </div>
+                      </div>
                     </li>
                     <li>
-                      <strong>Systems Engineering of Large Language Models for Enterprise Applications</strong><br/>
-                      S Singh<br/>
-                      <em>Preprints, 2025</em>
+                      <strong>Systems Engineering of Large Language Models for Enterprise Applications</strong>
+                      <span className="keywords">Keywords: Large Language Models, Enterprise AI, Systems Engineering, Machine Learning, Natural Language Processing, Business Applications, AI Integration</span>
+                      S Singh. <em>Preprints, 2025</em>
                     </li>
                     <li>
-                      <strong>KAN based Autoencoders for Factor Models</strong><br/>
-                      T Wang, S Singh<br/>
-                      <em>arXiv preprint arXiv:2408.02694, 2024 (2 citations)</em>
+                      <strong>KAN based Autoencoders for Factor Models</strong>
+                      <span className="keywords">Keywords: Kolmogorov-Arnold Networks, Autoencoders, Factor Models, Quantitative Finance, Machine Learning, Dimensionality Reduction, Financial Modeling</span>
+                      T Wang, S Singh. <em>arXiv preprint arXiv:2408.02694, 2024</em> (2 citations)
                     </li>
                     <li>
-                      <strong>An empirical study of market risk factors for Bitcoin</strong><br/>
-                      S Singh<br/>
-                      <em>arXiv preprint arXiv:2406.19401, 2024</em>
+                      <strong>An empirical study of market risk factors for Bitcoin</strong>
+                      <span className="keywords">Keywords: Bitcoin, Cryptocurrency, Market Risk, Quantitative Finance, Financial Modeling, Risk Management, Digital Assets, Volatility Analysis</span>
+                      S Singh. <em>arXiv preprint arXiv:2406.19401, 2024</em>
                     </li>
                     <li>
-                      <strong>Transformer-based approach for ethereum price prediction using crosscurrency correlation and sentiment analysis</strong><br/>
-                      S Singh, M Bhat<br/>
-                      <em>arXiv preprint arXiv:2401.08077, 2024 (8 citations)</em>
+                      <strong>Transformer-based approach for ethereum price prediction using crosscurrency correlation and sentiment analysis</strong>
+                      <span className="keywords">Keywords: Ethereum, Cryptocurrency, Price Prediction, Transformer Models, Sentiment Analysis, Cross-currency Correlation, Machine Learning, Deep Learning, Financial Forecasting</span>
+                      S Singh, M Bhat. <em>arXiv preprint arXiv:2401.08077, 2024</em> (8 citations)
                     </li>
                     <li>
-                      <strong>BrainVoxGen: Deep learning framework for synthesis of Ultrasound to MRI</strong><br/>
-                      S Singh, M Bewoor, A Ranapurwala, S Rai, S Patil<br/>
-                      <em>arXiv preprint arXiv:2310.08608, 2023 (3 citations)</em>
+                      <strong>BrainVoxGen: Deep learning framework for synthesis of Ultrasound to MRI</strong>
+                      <span className="keywords">Keywords: Medical Imaging, Ultrasound, MRI, Deep Learning, Image Synthesis, Computer Vision, Healthcare AI, Biomedical Engineering</span>
+                      S Singh, M Bewoor, A Ranapurwala, S Rai, S Patil. <em>arXiv preprint arXiv:2310.08608, 2023</em> (3 citations)
                     </li>
                     <li>
-                      <strong>Systematic Review of Techniques in Brain Image Synthesis using Deep Learning</strong><br/>
-                      S Singh, A Ranapurwala, M Bewoor, S Patil, S Rai<br/>
-                      <em>arXiv preprint arXiv:2309.04511, 2023 (4 citations)</em>
+                      <strong>Systematic Review of Techniques in Brain Image Synthesis using Deep Learning</strong>
+                      <span className="keywords">Keywords: Brain Imaging, Medical Image Synthesis, Deep Learning, Systematic Review, Computer Vision, Healthcare Technology, Neural Networks</span>
+                      S Singh, A Ranapurwala, M Bewoor, S Patil, S Rai. <em>arXiv preprint arXiv:2309.04511, 2023</em> (4 citations)
                     </li>
                     <li>
-                      <strong>Identifying Climate-resilient Agricultural Practices in India Through Positive Deviance Analysis of Soil Moisture, Temperature, and Precipitation Anomalies in Telangana</strong><br/>
-                      S Singh<br/>
-                      <em>International Journal of Engineering Applied Sciences and Technology 7(10), 2023</em>
+                      <strong>Identifying Climate-resilient Agricultural Practices in India Through Positive Deviance Analysis of Soil Moisture, Temperature, and Precipitation Anomalies in Telangana</strong>
+                      <span className="keywords">Keywords: Climate Resilience, Agriculture, India, Telangana, Soil Moisture, Temperature Analysis, Precipitation, Environmental Science, Data Analysis</span>
+                      S Singh. <em>International Journal of Engineering Applied Sciences and Technology 7(10), 2023</em>
                     </li>
                     <li>
-                      <strong>A Review of Sentiment & Machine Learning Based Strategies for Cryptocurrency Price Forecasting</strong><br/>
-                      S Singh, M Bhat<br/>
-                      <em>Journal of Cryptocurrency Research, 2023</em>
+                      <strong>A Review of Sentiment & Machine Learning Based Strategies for Cryptocurrency Price Forecasting</strong>
+                      <span className="keywords">Keywords: Cryptocurrency, Price Forecasting, Sentiment Analysis, Machine Learning, Financial Markets, Trading Strategies, Digital Assets, Predictive Modeling</span>
+                      S Singh, M Bhat. <em>Journal of Cryptocurrency Research, 2023</em>
                     </li>
                   </ul>
                 </div>
-              </section>
+              </div>
             </div>
           } />
           <Route path="/quant" element={<Quant />} />
@@ -156,7 +162,8 @@ function AppContent() {
           </div>
         </footer>
       </div>
-    );
+    </div>
+  );
 }
 
 function App() {

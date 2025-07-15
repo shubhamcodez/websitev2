@@ -218,6 +218,46 @@ footer {
   color: var(--primary);
 }
 
+/* Keywords styling for SEO */
+.keywords {
+  font-size: 0.85em;
+  color: var(--muted-color);
+  font-style: italic;
+  display: block;
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+/* Publications box styling */
+.publications-box {
+  border: 1px solid var(--muted-border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: var(--card-background-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.publications-content {
+  text-align: justify;
+}
+
+.publications-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.publications-content li {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--muted-border-color);
+}
+
+.publications-content li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
 .fw-bold {
   font-weight: bold;
 }
@@ -259,5 +299,51 @@ nav ul li a.active {
   nav ul {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+/* AQI Paper specific styling */
+.aqi-paper {
+  border-bottom: 1px solid var(--muted-border-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.aqi-content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.aqi-image {
+  flex-shrink: 0;
+  width: 150px;
+}
+
+.aqi-paper-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.aqi-text {
+  flex: 1;
+}
+
+/* Responsive design for AQI paper */
+@media (max-width: 768px) {
+  .aqi-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .aqi-image {
+    width: 120px;
+    margin-bottom: 15px;
+  }
+  
+  .aqi-text {
+    text-align: left;
   }
 }
