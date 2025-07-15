@@ -1,0 +1,61 @@
+.App {
+  text-align: left;
+}
+
+.life-updates p {
+  text-align: justify;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-link {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: #333;
+  font-weight: bold;
+}
+
+h2 {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  margin-top: 40px;
+}
