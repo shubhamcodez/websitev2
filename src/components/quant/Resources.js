@@ -1,8 +1,10 @@
 import React from 'react';
+import QuantNavbar from '../QuantNavbar';
 
 const Resources = () => {
   return (
     <div className="container">
+      <QuantNavbar />
       <section className="mb-4">
         <h2>Quantitative Finance Resources</h2>
         <p className="lead">

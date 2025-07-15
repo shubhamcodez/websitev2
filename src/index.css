@@ -1,13 +1,32 @@
+/* Import Pico.css */
+@import '@picocss/pico/css/pico.min.css';
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 14px; /* Reduced from default 16px */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Custom theme variables for better dark mode support */
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --primary-focus: rgba(0, 123, 255, 0.125);
+  --primary-inverse: #fff;
+}
+
+[data-theme="dark"] {
+  --primary: #4dabf7;
+  --primary-hover: #74c0fc;
+  --primary-focus: rgba(77, 171, 247, 0.125);
+  --primary-inverse: #000;
 }

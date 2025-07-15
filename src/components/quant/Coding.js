@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import QuantNavbar from '../QuantNavbar';
 
 const Coding = () => {
   const [csvData, setCsvData] = useState([]);
@@ -6,38 +7,45 @@ const Coding = () => {
   const [difficultyFilter, setDifficultyFilter] = useState('');
   const [companyFilter, setCompanyFilter] = useState('');
   const [companies, setCompanies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Sample CSV data - in a real app, you'd fetch this from an API
-  const sampleData = [
-    ['Problem', 'Category', 'Difficulty', 'Company', 'Description'],
-    ['Two Sum', 'Arrays', 'Easy', 'Google', 'Find two numbers that add up to target'],
-    ['Valid Parentheses', 'Stacks', 'Easy', 'Amazon', 'Check if parentheses are valid'],
-    ['Merge Two Sorted Lists', 'Linked Lists', 'Easy', 'Microsoft', 'Merge two sorted linked lists'],
-    ['Best Time to Buy and Sell Stock', 'Dynamic Programming', 'Easy', 'Facebook', 'Find maximum profit'],
-    ['Valid Anagram', 'Strings', 'Easy', 'Uber', 'Check if two strings are anagrams'],
-    ['Climbing Stairs', 'Dynamic Programming', 'Easy', 'Apple', 'Count ways to climb stairs'],
-    ['Maximum Subarray', 'Dynamic Programming', 'Medium', 'Google', 'Find maximum subarray sum'],
-    ['Product of Array Except Self', 'Arrays', 'Medium', 'Amazon', 'Calculate product without division'],
-    ['Search in Rotated Sorted Array', 'Binary Search', 'Medium', 'Microsoft', 'Search in rotated array'],
-    ['Combination Sum', 'Backtracking', 'Medium', 'Facebook', 'Find combinations that sum to target'],
-    ['Merge Intervals', 'Sorting', 'Medium', 'Uber', 'Merge overlapping intervals'],
-    ['Longest Palindromic Substring', 'Dynamic Programming', 'Medium', 'Apple', 'Find longest palindrome'],
-    ['Trapping Rain Water', 'Arrays', 'Hard', 'Google', 'Calculate trapped water'],
-    ['Regular Expression Matching', 'Dynamic Programming', 'Hard', 'Amazon', 'Implement regex matching'],
-    ['Merge k Sorted Lists', 'Heaps', 'Hard', 'Microsoft', 'Merge k sorted linked lists'],
-    ['Longest Valid Parentheses', 'Dynamic Programming', 'Hard', 'Facebook', 'Find longest valid parentheses'],
-    ['Word Search II', 'Trie', 'Hard', 'Uber', 'Find words in 2D board'],
-    ['Sliding Window Maximum', 'Deque', 'Hard', 'Apple', 'Find max in sliding window']
-  ];
+  // Function to parse CSV data
+  const parseCSV = (csvText) => {
+    const lines = csvText.split('\n');
+    const headers = lines[0].split(',');
+    const data = lines.slice(1).filter(line => line.trim() !== '').map(line => {
+      const values = line.split(',');
+      return values;
+    });
+    return [headers, ...data];
+  };
 
+  // Fetch CSV data
   useEffect(() => {
-    setCsvData(sampleData);
-    setFilteredData(sampleData.slice(1)); // Exclude header
-    
-    // Extract unique companies
-    const uniqueCompanies = [...new Set(sampleData.slice(1).map(row => row[3]))];
-    setCompanies(uniqueCompanies);
-  }, [sampleData]);
+    const fetchCSVData = async () => {
+      try {
+        const response = await fetch('/quant-problems.csv');
+        if (!response.ok) {
+          throw new Error('Failed to fetch CSV data');
+        }
+        const csvText = await response.text();
+        const parsedData = parseCSV(csvText);
+        
+        setCsvData(parsedData);
+        setFilteredData(parsedData.slice(1)); // Exclude header
+        
+        // Extract unique companies
+        const uniqueCompanies = [...new Set(parsedData.slice(1).map(row => row[3]))];
+        setCompanies(uniqueCompanies);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching CSV data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchCSVData();
+  }, []);
 
   useEffect(() => {
     let filtered = csvData.slice(1); // Exclude header
@@ -72,10 +80,25 @@ const Coding = () => {
     setFilteredData(sorted);
   };
 
+  if (loading) {
+    return (
+      <div className="container">
+        <QuantNavbar />
+        <main>
+          <h2>Quantitative Interview Problems</h2>
+          <div className="text-center">
+            <p>Loading problems data...</p>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="container">
+      <QuantNavbar />
       <main>
-        <h2>CSV Data Viewer</h2>
+        <h2>Quantitative Interview Problems</h2>
         <div className="filter-container mb-4">
           <label htmlFor="difficultyFilter">Difficulty:</label>
           <select 
@@ -110,26 +133,32 @@ const Coding = () => {
           </p>
         </div>
 
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              {csvData[0]?.map((header, index) => (
-                <th key={index} onClick={() => sortTable(index)} style={{ cursor: 'pointer' }}>
-                  {header}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
-                  <td key={cellIndex}>{cell}</td>
+        <div className="table-responsive">
+          <table className="table table-striped table-hover">
+            <thead className="table-dark">
+              <tr>
+                {csvData[0]?.map((header, index) => (
+                  <th key={index} onClick={() => sortTable(index)} style={{ cursor: 'pointer' }}>
+                    {header} {index > 0 && <span className="text-muted">↕</span>}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredData.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {row.map((cell, cellIndex) => (
+                    <td key={cellIndex}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        
+        <div className="mt-3 text-muted">
+          <small>Total problems: {filteredData.length} | Click column headers to sort</small>
+        </div>
       </main>
     </div>
   );

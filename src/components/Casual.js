@@ -1,41 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+
+// Sample blog posts data - moved outside component to prevent recreation
+const sampleBlogPosts = [
+  {
+    id: 1,
+    title: "My Journey into Quantitative Finance",
+    date: "2024-01-15",
+    description: "How I discovered my passion for quantitative finance and the steps I took to enter this field."
+  },
+  {
+    id: 2,
+    title: "Understanding Machine Learning in Trading",
+    date: "2024-02-20",
+    description: "A deep dive into how machine learning algorithms are transforming the trading landscape."
+  },
+  {
+    id: 3,
+    title: "The Future of Algorithmic Trading",
+    date: "2024-03-10",
+    description: "Exploring emerging trends and technologies that will shape the future of algorithmic trading."
+  },
+  {
+    id: 4,
+    title: "Risk Management in Quantitative Strategies",
+    date: "2024-04-05",
+    description: "Essential risk management techniques every quantitative trader should know."
+  }
+];
 
 const Casual = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [blogContent, setBlogContent] = useState('');
 
-  // Sample blog posts data
-  const sampleBlogPosts = [
-    {
-      id: 1,
-      title: "My Journey into Quantitative Finance",
-      date: "2024-01-15",
-      description: "How I discovered my passion for quantitative finance and the steps I took to enter this field."
-    },
-    {
-      id: 2,
-      title: "Understanding Machine Learning in Trading",
-      date: "2024-02-20",
-      description: "A deep dive into how machine learning algorithms are transforming the trading landscape."
-    },
-    {
-      id: 3,
-      title: "The Future of Algorithmic Trading",
-      date: "2024-03-10",
-      description: "Exploring emerging trends and technologies that will shape the future of algorithmic trading."
-    },
-    {
-      id: 4,
-      title: "Risk Management in Quantitative Strategies",
-      date: "2024-04-05",
-      description: "Essential risk management techniques every quantitative trader should know."
-    }
-  ];
+  // Use useMemo to prevent unnecessary re-renders
+  const memoizedBlogPosts = useMemo(() => sampleBlogPosts, []);
 
   useEffect(() => {
-    setBlogPosts(sampleBlogPosts);
-  }, [sampleBlogPosts]);
+    setBlogPosts(memoizedBlogPosts);
+  }, [memoizedBlogPosts]);
 
   const handleBlogClick = (blog) => {
     setSelectedBlog(blog);

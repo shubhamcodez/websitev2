@@ -1,92 +1,66 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Projects from './components/Projects';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Quant from './components/Quant';
 import Resume from './components/Resume';
 import Casual from './components/Casual';
 import Team from './components/Team';
-import SSI from './components/SSI';
 import Coding from './components/quant/Coding';
 import Resources from './components/quant/Resources';
 import Puzzles from './components/quant/Puzzles';
+import DarkModeToggle from './components/DarkModeToggle';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isQuantPage = location.pathname.startsWith('/quant');
+
   return (
-    <Router>
-      <div className="App">
-        <div className="container">
-          <header className="text-center my-4">
-            <h1>Shubham Singh</h1>
-          </header>
+    <div className="App">
+      <DarkModeToggle />
+      <div className="container">
+        <header className="text-center my-4">
+          <h1>Shubham Singh</h1>
+        </header>
 
-          <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
-            <div className="container">
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/projects">Projects</Link>
-                  </li>
-                  <li className="nav-item dropdown">
-                    <button className="nav-link dropdown-toggle" type="button" id="quantDropdown" data-toggle="dropdown" aria-expanded="false">
-                      Quant Resources
-                    </button>
-                    <div className="dropdown-menu" aria-labelledby="quantDropdown">
-                      <Link className="dropdown-item" to="/quant">Overview</Link>
-                      <Link className="dropdown-item" to="/quant/coding">Coding</Link>
-                      <Link className="dropdown-item" to="/quant/resources">Resources</Link>
-                      <Link className="dropdown-item" to="/quant/puzzles">Puzzles</Link>
-                    </div>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/resume">Resume</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/casual">Blog</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/team">Team</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/ssi">SSI</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+        {!isQuantPage && (
+          <nav className="container-fluid">
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/quant">Quant Resources</Link></li>
+              <li><Link to="/resume">Resume</Link></li>
+              <li><Link to="/casual">Blog</Link></li>
+            </ul>
           </nav>
-        </div>
+        )}
+      </div>
         <Routes>
           <Route path="/" element={
             <div>
               <section>
                 <div className="intro-section">
                   <div className="intro-content">
-                    <p>
-                      I am a Quantitative Researcher specializing in statistical modeling, machine learning, and deep learning. I have developed and backtested predictive pricing models and algorithmic trading strategies; built robust trading systems and risk frameworks; and engineered scalable ML pipelines from data ingestion and feature engineering to AI model training and real-time deployment.
-                    </p>
-                    <p>
-                      I hold an M.S. in Computer Engineering from New York University (Sep 2023 – May 2025) and a B.S. in Computer Science from Bharati Vidyapeeth University (Jul 2019 – Jun 2023).
-                    </p>
-                    <p>
-                      Currently working as Quant Research Lead at GoQuant, where I direct alpha research initiatives, deploy systematic futures and options strategies, and architect execution engines and quantitative pricing models. I design and implement intelligent smart-order-routing systems that optimize venue selection, minimizing market impact, slippage, and transaction fees.
-                    </p>
-                    <p>
-                      My research interests include quantitative finance, machine learning, statistical modeling, and algorithmic trading. I am also interested in interdisciplinary topics that integrate methodologies in multiple fields such as applied probability, statistics, and optimization, along with their applications in addressing high-stake decision-making problems in modern large-scale systems, such as financial and economic systems. Some of the topics that I have been working on recently:
-                    </p>
-                    <ul>
-                      <li>mathematical foundation of Generative AI,</li>
-                      <li>optimal stopping and dynamic information acquisition,</li>
-                      <li>stochastic control, stochastic games, and mean-field games,</li>
-                      <li>reinforcement learning theory,</li>
-                      <li>and their applications in market microstructure and risk management</li>
-                    </ul>
-                    <p>Please find my CV <Link to="/resume">here</Link>.</p>
-                    <p>Email: shubham.singh (at) nyu (dot) edu</p>
+                    <div className="justified-text">
+                      <p>
+                        I am a Quantitative Researcher specializing in statistical modeling, machine learning, and deep learning. I have developed and backtested predictive pricing models and algorithmic trading strategies; built robust trading systems and risk frameworks; and engineered scalable ML pipelines from data ingestion and feature engineering to AI model training and real-time deployment.
+                      </p>
+                      <p>
+                        I hold an M.S. in Computer Engineering from New York University (Sep 2023 – May 2025) and a B.S. in Computer Science from Bharati Vidyapeeth University (Jul 2019 – Jun 2023).
+                      </p>
+                      <p>
+                        Currently working as Quant Researcher at GoQuant, where I direct alpha research initiatives, deploy systematic futures and options strategies, and architect execution engines and quantitative pricing models. I design and implement intelligent smart-order-routing systems that optimize venue selection, minimizing market impact, slippage, and transaction fees.
+                      </p>
+                      <p>
+                        My research interests include quantitative finance, machine learning, statistical modeling, and algorithmic trading. I am also interested in interdisciplinary topics that integrate methodologies in multiple fields such as applied probability, statistics, and optimization, along with their applications in addressing high-stake decision-making problems in modern large-scale systems, such as financial and economic systems. Some of the topics that I have been working on recently:
+                      </p>
+                      <ul>
+                        <li>mathematical foundation of Generative AI,</li>
+                        <li>optimal stopping and dynamic information acquisition,</li>
+                        <li>stochastic control, stochastic games, and mean-field games,</li>
+                        <li>reinforcement learning theory,</li>
+                        <li>and their applications in market microstructure and risk management</li>
+                      </ul>
+                      <p>Please find my CV <Link to="/resume">here</Link>.</p>
+                      <p>Email: shubham.singh (at) nyu (dot) edu</p>
+                    </div>
                   </div>
                   <div className="profile-image-container">
                     <img src="/me.jpeg" alt="Shubham Singh" className="profile-image" />
@@ -148,7 +122,6 @@ function App() {
               </section>
             </div>
           } />
-          <Route path="/projects" element={<Projects />} />
           <Route path="/quant" element={<Quant />} />
           <Route path="/quant/coding" element={<Coding />} />
           <Route path="/quant/resources" element={<Resources />} />
@@ -156,9 +129,15 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/casual" element={<Casual />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/ssi" element={<SSI />} />
         </Routes>
 
+        <div className="university-logos text-center mt-4">
+          <img src="/NYU.png" alt="New York University" className="university-logo" />
+          <img src="/bvp.png" alt="Bharati Vidyapeeth University" className="university-logo" />
+          <img src="/GoQuant.png" alt="GoQuant" className="university-logo full-width" />
+          <img src="/aiisc.png" alt="AIISC" className="university-logo full-width" />
+        </div>
+        
         <footer className="text-center mt-4">
           <p>&copy; 2025 Shubham Singh. All rights reserved.</p>
           <div className="social-links">
@@ -177,6 +156,13 @@ function App() {
           </div>
         </footer>
       </div>
+    );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
