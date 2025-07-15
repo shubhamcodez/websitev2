@@ -1,7 +1,6 @@
 {
   "name": "websitev2",
   "version": "0.1.0",
-  "homepage": "https://shubhamcodez.github.io/websitev2",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
