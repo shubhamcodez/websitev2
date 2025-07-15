@@ -234,6 +234,7 @@ footer {
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
+  margin-right: 5cm;
   background-color: var(--card-background-color);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -312,22 +313,32 @@ nav ul li a.active {
 .aqi-content {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: center;
+  min-height: 200px;
 }
 
 .aqi-image {
   flex-shrink: 0;
-  width: 150px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .aqi-paper-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: fill;
   border-radius: 8px;
 }
 
 .aqi-text {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* Responsive design for AQI paper */
@@ -339,11 +350,410 @@ nav ul li a.active {
   }
   
   .aqi-image {
-    width: 120px;
+    width: 150px;
+    height: 150px;
     margin-bottom: 15px;
   }
   
   .aqi-text {
+    text-align: left;
+  }
+}
+
+/* Systems Engineering Paper specific styling */
+.syseng-paper {
+  border-bottom: 1px solid var(--muted-border-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.syseng-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 200px;
+}
+
+.syseng-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.syseng-paper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.syseng-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Responsive design for Systems Engineering paper */
+@media (max-width: 768px) {
+  .syseng-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .syseng-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .syseng-text {
+    text-align: left;
+  }
+}
+
+/* KAN Factor Models Paper specific styling */
+.kanfac-paper {
+  border-bottom: 1px solid var(--muted-border-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.kanfac-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 200px;
+}
+
+.kanfac-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kanfac-paper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.kanfac-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Responsive design for KAN Factor Models paper */
+@media (max-width: 768px) {
+  .kanfac-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .kanfac-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .kanfac-text {
+    text-align: left;
+  }
+}
+
+/* Bitcoin Market Risk Factors Paper specific styling */
+.factorsbtc-paper {
+  border-bottom: 1px solid var(--muted-border-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.factorsbtc-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 200px;
+}
+
+.factorsbtc-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.factorsbtc-paper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.factorsbtc-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Responsive design for Bitcoin Market Risk Factors paper */
+@media (max-width: 768px) {
+  .factorsbtc-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .factorsbtc-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .factorsbtc-text {
+    text-align: left;
+  }
+}
+
+/* Transformer Ethereum Price Prediction Paper specific styling */
+.transformeteth-paper {
+  border-bottom: 1px solid var(--muted-border-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.transformeteth-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 200px;
+}
+
+.transformeteth-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transformeteth-paper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.transformeteth-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Responsive design for Transformer Ethereum Price Prediction paper */
+@media (max-width: 768px) {
+  .transformeteth-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .transformeteth-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .transformeteth-text {
+    text-align: left;
+  }
+}
+
+/* BrainVoxGen Paper specific styling */
+.brainvoxgen-paper {
+  border-bottom: 1px solid var(--muted-border-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.brainvoxgen-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 200px;
+}
+
+.brainvoxgen-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brainvoxgen-paper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.brainvoxgen-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Responsive design for BrainVoxGen paper */
+@media (max-width: 768px) {
+  .brainvoxgen-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .brainvoxgen-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .brainvoxgen-text {
+    text-align: left;
+  }
+}
+
+/* Brain Image Synthesis Review Paper specific styling */
+.brain-paper {
+  border-bottom: 1px solid var(--muted-border-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.brain-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 200px;
+}
+
+.brain-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brain-paper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.brain-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Responsive design for Brain Image Synthesis Review paper */
+@media (max-width: 768px) {
+  .brain-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .brain-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .brain-text {
+    text-align: left;
+  }
+}
+
+/* Climate Resilience Agriculture Paper specific styling */
+.geo-paper {
+  border-bottom: 1px solid var(--muted-border-color);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.geo-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 200px;
+}
+
+.geo-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.geo-paper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.geo-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Responsive design for Climate Resilience Agriculture paper */
+@media (max-width: 768px) {
+  .geo-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .geo-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .geo-text {
     text-align: left;
   }
 }
